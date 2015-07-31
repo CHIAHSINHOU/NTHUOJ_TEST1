@@ -7,5 +7,6 @@ Any HTML tags should be ignored.
 我使用 Requests module 的 Session 去 修改 cookie 做登入<br>
 使用 BeautifulSoup module 去解析HTML文字的部分<br>
 再開一個map紀錄文字出現次數並輸出<br>
-還有因為他是用js去資料庫裡抓網頁的，所以真正的網頁資料存在http://sprout.csie.org/oj/be/rate
+還有因為他是用js去資料庫裡抓網頁的，所以真正的網頁資料存在http://sprout.csie.org/oj/be/rate<br>
+帳號密碼要自行註冊，登入成功後count_word.txt就會有自己註冊的名子
 </p>
