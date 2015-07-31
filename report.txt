@@ -1,0 +1,6 @@
+這次總共用了requests、codecs和HTMLParser三種工具
+爬的網站是上學期web課的課程網頁(http://140.114.89.25/~geniusturtle/wpta_portal/)
+登入部分是用requests來達成的，把資料抓出來後，為了處理中文字，所以將資料的編碼改成utf-8
+之後用HTMLParser將html的tag去掉，最後得到一個字串
+再來就是將字串以一個字元為單位(中文、英文、數字或符號)切割成後存放在list，然後用dictionary做統計
+資料寫入則是用到了codecs，將統計完的數據以utf-8的格式寫入到result.txt
