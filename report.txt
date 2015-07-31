@@ -1,0 +1,13 @@
+﻿首先使用urllib
+其中使用CookieJar製造虛擬伺服器(以防部分網頁不能使用)
+urllib內建的request來傳送(帳號與密碼)
+將request的東西read出來使用其網頁的編碼decode
+將decode完的資料feed到Parser
+
+使用HTMLParser來將html標籤拔除
+使用global str dedata存取全部的data後
+
+之後運用一個for將list output中的文字搜尋一次
+如果不存在(been != 1)則update到list中
+word順便加一(用來檢查但資料量過大時難以辨別)
+最後印出答案
