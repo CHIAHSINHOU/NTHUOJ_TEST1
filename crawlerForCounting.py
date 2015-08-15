@@ -34,7 +34,7 @@ class SessionHandler():
             self.goTo(self.targetUrl)
 
     def logout(self):
-        resp = self.goTo(self.logoutUrl);
+        self.goTo(self.logoutUrl)
 
     def removeDataInSpecialTags(self):
         for tag in self.specialTags:
