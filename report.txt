@@ -1,0 +1,26 @@
+[注意事項]
+本作業僅需要運行crawlerForCounting.py
+但必須在有安裝requests和pyquery這兩個library的環境才能運作
+所有結果皆輸出於command line上
+
+
+[作業資訊]
+我選擇了zerojudge的解題動態頁面(http://zerojudge.tw/Submissions)作為分析的對象
+這個頁面需要先登入才能看到完整資訊
+
+
+[實作方法]
+1.登入
+使用requests所提供的Session物件的get方法獲取登入頁面
+接著使用pyquery抽取登入頁面的表單中所隱藏的token資訊
+最後再使用剛才的Session物件將帳號密碼以及剛才抓取的token資訊用post方法送出
+送完post之後便登入成功
+
+2.過濾HTML文件中不必要的資訊
+利用剛才Session物件的get方法獲取解題動態頁面的資訊
+由於網頁標題、CSS語法以及javascript原始碼都是不應該被納入分析結果的資訊
+因此先使用pyquery的remove方法移除掉所有被<title></title>、<style></style>、<script></script>包夾的資料
+最後再使用pyquery的text方法排除掉所有的標籤
+
+3.統計結果
+使用一個dictionary統計每個字母的出現頻率(不包含' ','\t','\r','\n')
