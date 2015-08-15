@@ -41,7 +41,7 @@ class SessionHandler():
             self.currentPage(tag).remove()
 
     def showCleanedPage(self):
-		self.removeDataInSpecialTags()
+        self.removeDataInSpecialTags()
         print "================================================================="
         print "=== The contents after removing tags and comments             ==="
         print "===    and other data belonged to <title>, <script>, <style>. ==="
