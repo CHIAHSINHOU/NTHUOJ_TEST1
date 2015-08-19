@@ -39,8 +39,8 @@ def get_soup(url):
     rel.raise_for_status()
     return BeautifulSoup(rel.text,'html.parser')
 
-email='jacky860226@yahoo.com.tw'
-password='314159265358979323846264338327950288419'
+email=''
+password=''
 if login(email,password):
     url='http://sprout.csie.org/oj/rate/'
     soup=get_soup(url)
