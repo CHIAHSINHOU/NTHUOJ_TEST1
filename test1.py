@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -18,34 +19,28 @@ def login(email,password):
     rel=session.post(url,data=data)
     if rel.text[0]=='E':
         print 'Login Failed'
+        return False
     else:
         print 'Login Successful'
+        return True
 
 def count_word(s):
-    list='~`!@#$%^&*(){}[]_-+=|\\\"\'<>,.?:;/'
-    s2=''
-    for i in s:
-        if i in list:
-            s2+=' '
-        else:
-            s2+=i
-    s_split=s2.split()
+    s_split=re.split('\n',s)
     p={}
     for i in s_split:
         p[i]=p.get(i,0)+1
-    f=open("count_word.txt","w")
-    for i in p:
-        f.write(i+' : '+str(p[i])+'\n')
-        #print i+' : '+str(p[i])
-    f.close()
+    with open("count_word.txt","w") as f:
+        for i in p:
+            f.write(i+' : '+str(p[i])+'\n')
+            #print i+' : '+str(p[i])
 
 def get_soup(url):
     rel=session.get(url)
     rel.raise_for_status()
     return BeautifulSoup(rel.text,'html.parser')
 
-email=''
-password=''
+email='jacky860226@yahoo.com.tw'
+password='314159265358979323846264338327950288419'
 if login(email,password):
     url='http://sprout.csie.org/oj/rate/'
     soup=get_soup(url)
